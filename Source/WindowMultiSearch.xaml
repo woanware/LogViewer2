@@ -1,0 +1,51 @@
+﻿<Window x:Class="LogViewer2.WindowMultiSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogViewer2"
+        mc:Ignorable="d"
+        Title="Multi-String Search" Height="300" Width="700" Icon="Icons/SearchTerms.png" WindowStartupLocation="CenterOwner">
+    <Grid Margin="10,0,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="22" />
+        </Grid.RowDefinitions>
+
+        <Label Name="lblSearchType" Grid.Column="0" Margin="0,0,0,0">Search Type</Label>
+        <ComboBox Name="cmbSearchType" HorizontalAlignment="Left" Margin="75,5,0,0" VerticalAlignment="Top" Width="200">
+            <ComboBoxItem Content="Sub String Case Insensitive"/>
+            <ComboBoxItem Content="Sub String Case Sensitive"/>
+            <ComboBoxItem Content="Regex Case Insensitive"/>
+            <ComboBoxItem Content="Regex Case Sensitive"/>
+        </ComboBox>
+        
+        <ListView Name="listSearchTerms" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,5,0,10" Grid.Column="1" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Pattern/Term" Width="Auto" x:Name="colPattern">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" Foreground="Black" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Left" Margin="0,0,0,0">
+            <Button Name="btnImport" HorizontalAlignment="Left" MinWidth="60" Margin="0,0,470,0" Click="BtnImport_Click">_Import</Button>
+        </WrapPanel>
+
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,0,0">
+            <Button IsDefault="True" Name="btnOk" MinWidth="60" Margin="0,0,10,0" Click="BtnOk_Click">_OK</Button>
+            <Button IsCancel="True" Name="btnCancel" MinWidth="60" Margin="0,0,0,0">_Cancel</Button>
+        </WrapPanel>
+        
+    </Grid>
+    </Window>

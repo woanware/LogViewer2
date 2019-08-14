@@ -1,0 +1,4 @@
+﻿HighlightColour = "Lime"
+ContextColour = "LightGray"
+MultiSelectLimit = 1000
+NumContextLines = 0
