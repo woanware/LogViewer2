@@ -43,7 +43,7 @@ The main reasons for this being faster is that it has removed some functionality
 
 ## Screenshot
 
-![](screenshot.png)
+![](Screenshot.png)
 
 ## Third Party
 

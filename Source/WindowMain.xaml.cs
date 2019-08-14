@@ -63,7 +63,19 @@ namespace LogViewer2
         private void MnuFileOpenNew_Click(object sender, RoutedEventArgs e)
         {
             //LoadFile("access.log.txt", true);
-            LoadFile("access_log2", true);
+            //LoadFile("access_log2", true);
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "All Files|*.*";
+            openFileDialog.FileName = "*.*";
+            openFileDialog.Title = "Select log file";
+
+            if (openFileDialog.ShowDialog(this) == false)
+            {
+                return;
+            }
+
+            LoadFile(openFileDialog.FileName, true);
         }
 
         /// <summary>
@@ -73,7 +85,19 @@ namespace LogViewer2
         /// <param name="e"></param>
         private void MnuFileOpen_Click(object sender, RoutedEventArgs e)
         {
-            LoadFile("access.log.txt", false);
+            //LoadFile("access.log.txt", false);
+
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "All Files|*.*";
+            openFileDialog.FileName = "*.*";
+            openFileDialog.Title = "Select log file";
+
+            if (openFileDialog.ShowDialog(this) == false)
+            {
+                return;
+            }
+
+            LoadFile(openFileDialog.FileName, false);
         }
 
         /// <summary>
