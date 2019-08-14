@@ -192,9 +192,8 @@ namespace LogViewer2
                 cl.ExportComplete += LogFile_ExportComplete; ;
                 cl.LoadError += LogFile_LoadError;
                 cl.MultiSearchInitiated += LogFile_MultiSearchInitiated;
-                //lf.List.ItemActivate += new EventHandler(this.listLines_ItemActivate);
-                // lf.List.DragDrop += new DragEventHandler(this.listLines_DragDrop);
-                //lf.List.DragEnter += new DragEventHandler(this.listLines_DragEnter);
+                cl.DragEnter += LogFile_DragEnter;
+                cl.Drop += LogFile_Drop;
                 
                 TabItem ti = new TabItem
                 {
@@ -384,6 +383,57 @@ namespace LogViewer2
                 this.cancellationTokenSource.Dispose();                
                 SetProcessingState(true);
             });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LogFile_Drop(object sender, DragEventArgs e)
+        {
+            if (processing == true)
+            {
+                return;
+            }
+
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length == 0)
+            {
+                return;
+            }
+
+            if (files.Length > 1)
+            {
+                MessageBox.Show("Only one file can be processed at one time", Application.ResourceAssembly.GetName().Name, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            LoadFile(files[0], false);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LogFile_DragEnter(object sender, DragEventArgs e)
+        {
+            if (processing == true)
+            {
+                return;
+            }
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effects = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+
+            e.Handled = true;
         }
         #endregion
 

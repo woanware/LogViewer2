@@ -62,6 +62,7 @@ namespace LogViewer2
         {
             InitializeComponent();
 
+            this.AllowDrop = true;
             this.config = config;
             this.Guid = System.Guid.NewGuid().ToString();
             this.Searches = new Searches();
@@ -965,7 +966,6 @@ namespace LogViewer2
 
             wl.ShowDialog();
         }
-
-        #endregion        
+        #endregion
     }
 }
