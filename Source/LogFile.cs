@@ -78,7 +78,7 @@ namespace LogViewer2
                 {                    
                     byte[] tempBuffer = new byte[1024 * 1024];
 
-                    this.fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+                    this.fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                     FileInfo fileInfo = new FileInfo(filePath);
 
                     // Calcs and finally point the position to the end of the line
