@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LogViewer2"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="LogViewer2.WindowMain"
         mc:Ignorable="d"
-        Title="LogViewer2" Height="862.015" Width="1176.426" Icon="Icons/App.png" Loaded="Window_Loaded">
+        Title="LogViewer2" Height="862.015" Width="1176.426" Icon="/Icons/App.png" Loaded="Window_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
