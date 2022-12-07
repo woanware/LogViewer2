@@ -5,10 +5,19 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+    <Copyright>woanware ™️ </Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageIcon>App.ico</PackageIcon>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Company>woanware</Company>
+    <RepositoryUrl>https://github.com/woanware/LogViewer2</RepositoryUrl>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="App.png" />
     <None Remove="Icons\App.png" />
     <None Remove="Icons\Line.png" />
     <None Remove="Icons\Search.png" />
@@ -16,7 +25,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="App.png" />
+    <None Include="..\readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Icons\App.png" />
     <Resource Include="Icons\Line.png" />
     <Resource Include="Icons\Search.png" />
@@ -25,6 +40,13 @@
 
   <ItemGroup>
     <PackageReference Include="Nett" Version="0.15.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
